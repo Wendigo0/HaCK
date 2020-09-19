@@ -1,23 +1,34 @@
 import time
 import schedule
 import tkinter as tk
-import Car
 
+from Car import Car
 import Value_Functions as vf
 
 
-def main_func():
+def main():
+
+    window = tk.Tk()
+    canvas = tk.Canvas(window, width=1920, height=1080, bg='black')
+    canvas.pack()
+    # Gathers reading from arduino distance sensors
     vf.comm_w_arduino(list_values)
     # Stores Readings in a Master List
     vf.create_master_list(list_values, MASTER_VALUES)
 
+    car = Car(canvas)
+
+    window.bind('<KeyPress-a>', lambda event: car.move(event, canvas, MASTER_VALUES))
+
+
+
 
 list_values = []
 MASTER_VALUES = []
-print('Program Started')
+# print('Program Started')
 
-schedule.every(1).seconds.do(main_func)
+schedule.every(.5).seconds.do(main)
 
 while True:
-    schedule.run_pending()
+    main()
     time.sleep(.1)
