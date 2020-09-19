@@ -2,16 +2,15 @@ import serial
 import time
 import schedule
 
-
-list_values = []
-list_float_values = []
+import Value_Functions as vf
 
 
-def comm_w_arduino():
+def main_func():
     arduino = serial.Serial('com3', 9600)
     print('Connection Established')
     ard_data = arduino.readline()
 
+    list_values.clear()
     decoded_value = str(ard_data[0:len(ard_data)].decode('utf-8'))
     # Remove the random new line formatting
     decoded_value = [x.rstrip() for x in decoded_value]
@@ -27,18 +26,21 @@ def comm_w_arduino():
         list_values.append(float(x))
     print(f'Collected readings from Arduino: {list_values}')
 
+    # Stores Readings in a Master List
+    vf.create_master_list(list_values, MASTER_VALUES)
+
     ard_data = 0
-    list_values.clear()
-    list_float_values.clear()
     arduino.close()
     print('Connection closed')
     print('<-------------------------------------->')
 
 
+list_values = []
+MASTER_VALUES = []
 print('Program Started')
 
-schedule.every(1).seconds.do(comm_w_arduino)
+schedule.every(1).seconds.do(main_func)
 
 while True:
     schedule.run_pending()
-    time.sleep(1)
+    time.sleep(.1)
