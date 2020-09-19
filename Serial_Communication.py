@@ -19,10 +19,12 @@ def comm_w_arduino():
     # Put the string back together
     for x in decoded_value:
         new += x
-        
-    decoded_value = new
-    list_values.append(decoded_value)
-    print(list_values)
+
+    # Turn string into float
+    new = new.split(',')
+
+    for x in new:
+        list_values.append(float(x))
     print(f'Collected readings from Arduino: {list_values}')
 
     ard_data = 0
