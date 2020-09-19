@@ -1,13 +1,13 @@
 
 //1st bridge motor 1
-int enA = 8;
-int input1 = 10;
-int input2 = 9;
+int enB = 13;
+int input1 = 12;
+int input2 = 11;
 
 //1st bridge motor 2
-int enB = 13;
-int input3 = 12;
-int input4 = 11;
+int enA = 8;
+int input3 = 10;
+int input4 = 9;
 
 
 void setup() {
