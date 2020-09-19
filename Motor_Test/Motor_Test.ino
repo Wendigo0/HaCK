@@ -40,18 +40,17 @@ void loop() {
   digitalWrite(input2, HIGH);  
   digitalWrite(input3, HIGH);
   digitalWrite(input4, LOW); 
-  digitalWrite(input5, HIGH);
+  digitalWrite(input5, HIGH); //all the same direction
   digitalWrite(input6, LOW);  
   digitalWrite(input7, LOW);
   digitalWrite(input8, HIGH); 
 
   analogWrite(enA, 200);
   analogWrite(enB, 200);
-  delay(5000);
-
   analogWrite(enA_2, 200);
   analogWrite(enB_2, 200);
   delay(5000);
+
 
   digitalWrite(input1, LOW);
   digitalWrite(input2, LOW);  
