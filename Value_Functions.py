@@ -5,10 +5,10 @@ def create_master_list(values, MASTER_VALUES):
     MASTER_VALUES.append(values)
     print(MASTER_VALUES)
 
-
 def comm_w_arduino(list_values):
+    # Com for data transfer
     arduino = serial.Serial('com3', 9600)
-    print('Connection Established')
+    # print('Connection Established')
     ard_data = arduino.readline()
 
     list_values.clear()
@@ -25,9 +25,7 @@ def comm_w_arduino(list_values):
 
     for x in new:
         list_values.append(float(x))
-    print(f'Collected readings from Arduino: {list_values}')
+    # print(f'Collected readings from Arduino: {list_values}')
 
     ard_data = 0
-    arduino.close()
-    print('Connection closed')
-    print('<-------------------------------------->')
+    # print('<-------------------------------------->')
