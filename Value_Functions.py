@@ -1,9 +1,11 @@
 import serial
+from Car import Car
 
 
 def create_master_list(values, MASTER_VALUES):
     MASTER_VALUES.append(values)
     print(MASTER_VALUES)
+
 
 def comm_w_arduino(list_values):
     # Com for data transfer
@@ -29,3 +31,9 @@ def comm_w_arduino(list_values):
 
     ard_data = 0
     # print('<-------------------------------------->')
+
+
+def counter(counter):
+    counter += 1
+    return counter
+
