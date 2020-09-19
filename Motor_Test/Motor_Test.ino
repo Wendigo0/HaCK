@@ -49,6 +49,10 @@ void loop() {
   analogWrite(enB, 200);
   delay(5000);
 
+  analogWrite(enA_2, 200);
+  analogWrite(enB_2, 200);
+  delay(5000);
+
   digitalWrite(input1, LOW);
   digitalWrite(input2, LOW);  
   digitalWrite(input3, LOW);
