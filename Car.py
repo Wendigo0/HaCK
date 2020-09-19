@@ -17,6 +17,7 @@ class Car:
         x = canvas.create_oval(self.x - 10, self.y - 10, self.x + 10, self.y + 10, fill='blue')
         car_queue.append(x)
 
-    def move(self, canvas):
-        pass
-
+    def move(self, event, canvas, master_list):
+        if master_list[0][0] < 1:
+            self.x += 10
+            self.draw(canvas)
