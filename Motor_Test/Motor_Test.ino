@@ -1,21 +1,21 @@
 
 //1st bridge (motor 1)
-int enB = 13;
+int enB = A2;
 int input1 = 12;
 int input2 = 11;
 //1st bridge (motor 3)
-int enA = 8;
+int enA = A3;
 int input3 = 10;
 int input4 = 9;
 
 //2nd bridge (motor 2)
-int enB_2 = 7;
+int enB_2 = A4;
 int input5 = 6;
 int input6 = 5;
 //2nd bridge (motor 4)
 int input7 = 4;
 int input8 = 3;
-int enA_2 = 2; 
+int enA_2 = A5; 
 
 
 void setup() {
