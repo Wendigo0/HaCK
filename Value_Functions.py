@@ -10,22 +10,25 @@ def comm_w_arduino(arduino, list_values):
     ard_data = arduino.readline()
 
     list_values.clear()
-    decoded_value = str(ard_data[0:len(ard_data)].decode('utf-8'))
-    # Remove the random new line formatting
-    decoded_value = [x.rstrip() for x in decoded_value]
-    new = ''
-    # Put the string back together
-    for x in decoded_value:
-        new += x
+    try:
+        decoded_value = str(ard_data[0:len(ard_data)].decode('utf-8'))
+        # Remove the random new line formatting
+        decoded_value = [x.rstrip() for x in decoded_value]
+        new = ''
+        # Put the string back together
+        for x in decoded_value:
+            new += x
 
-    # Turn string into float
-    new = new.split(',')
+        # Turn string into float
+        new = new.split(',')
 
-    for x in new:
-        list_values.append(float(x))
-    # print(f'Collected readings from Arduino: {list_values}')
+        for x in new:
+            list_values.append(float(x))
+        # print(f'Collected readings from Arduino: {list_values}')
 
-    ard_data = 0
+        ard_data = 0
+    except (IndexError, ValueError):
+        print("Error: Continuing.")
     # print('<-------------------------------------->')
     # arduino.close()
 
