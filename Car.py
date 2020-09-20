@@ -43,7 +43,7 @@ class Car:
                 self.x = dist_forward
                 self.y = maxd-dist_outward
                 self.draw(canvas)
-            elif new_list[4] == 4:  # West wall
+            elif new_list[3] == 4:  # West wall
                 self.x = dist_outward
                 self.y = dist_forward
                 self.draw(canvas)
