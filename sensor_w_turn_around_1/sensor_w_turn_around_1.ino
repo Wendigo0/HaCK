@@ -1,3 +1,4 @@
+#include <SoftwareSerial.h>
 
 //1st bridge (motor 1)
 int enB = A2;
