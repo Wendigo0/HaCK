@@ -1,5 +1,6 @@
 import tkinter as tk
 import serial
+import time
 
 from Car import Car
 from Mapping import Point
@@ -12,7 +13,7 @@ car = Car(canvas)
 dots = Point(canvas)
 
 arduino = serial.Serial("com3", 9600, timeout=2)  # Establishes the connection
-
+time.sleep(1)
 list_values = []
 MASTER_VALUES = []
 
@@ -24,14 +25,15 @@ def main():
 
     # Prints values for reference
     print(list_values)
+    
+    if len(list_values) == 4:
+        # Car moves based on the distance sensor readings
+        car.move(canvas, list_values)
 
-    # Car moves based on the distance sensor readings
-    car.move(canvas, list_values)
+        # Pauses the code with the map still showing
+        window.bind("<space>", lambda event: vf.pause(event))
 
-    # Pauses the code with the map still showing
-    window.bind("<space>", lambda event: vf.pause(event))
-
-    dots.determine_pos(canvas, list_values)
+        dots.determine_pos(canvas, list_values)
 
     window.after(10, main)
 
