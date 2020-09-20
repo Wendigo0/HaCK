@@ -144,7 +144,7 @@ void loop() {
 
   Serial.println(side);//side of arena (1-4)
 
-  if( (distance2 <= 0.20) && (distance2 >= 0.15) ){
+  if( (distance2 <= 0.30) && (distance2 >= 0.15) ){
     digitalWrite(input1, HIGH);
     digitalWrite(input2, LOW);  
     digitalWrite(input3, LOW);
@@ -154,10 +154,10 @@ void loop() {
     digitalWrite(input7, LOW);
     digitalWrite(input8, HIGH); 
 
-    analogWrite(enA, 200);
-    analogWrite(enB, 200);
-    analogWrite(enA_2, 200);
-    analogWrite(enB_2, 200);
+    analogWrite(enA, 150);
+    analogWrite(enB, 150);
+    analogWrite(enA_2, 150);
+    analogWrite(enB_2, 150);
     delay(500);    //arbitrary time delay - TODO: trial and error
     
     side++;
@@ -172,6 +172,10 @@ void loop() {
     digitalWrite(input2, LOW);  
     digitalWrite(input3, LOW);
     digitalWrite(input4, LOW);
+    digitalWrite(input5, LOW);
+    digitalWrite(input6, LOW);
+    digitalWrite(input7, LOW);  
+    digitalWrite(input8, LOW);
   }
   
 }
