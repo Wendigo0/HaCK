@@ -97,14 +97,14 @@ void loop() {
   analogWrite(enB, 200);
   analogWrite(enA_2, 200);
   analogWrite(enB_2, 200);
-  delay(5000);
+  //delay(5000);
   
     //using first sensor
   digitalWrite(trigPin1, LOW);
   delayMicroseconds(2);
 
   digitalWrite(trigPin1, HIGH);
-  delayMicroseconds(100);
+  delayMicroseconds(10);
   digitalWrite(trigPin1, LOW);
 
   duration1 = pulseIn(echoPin1, HIGH);
