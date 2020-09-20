@@ -1,4 +1,3 @@
-import tkinter as tk
 
 points_queue = []
 
@@ -18,31 +17,31 @@ class Point:
     def determine_pos(self, canvas, list_values):
         maxd = 750
         counter = 0
-        #
+        new_list = list_values.copy()
         while counter < 3:
-            list_values[counter] = ((list_values[counter] * 100) / 2) * 10
+            new_list[counter] = ((new_list[counter] * 100) / 2) * 10
             counter += 1
-        list_values[3] = int(list_values[3])
+        new_list[3] = int(new_list[3])
         # Inner sensor data
-        dist_inward = list_values[0] + (12.5 / 2) * 10  # Correction factor for width of the car
+        dist_inward = new_list[0] + (12.5 / 2) * 10  # Correction factor for width of the car
         # Front sensor data
-        dist_forward = list_values[1] + (12.5 / 2) * 10  # Correction factor for the length of the car
+        dist_forward = new_list[1] + (12.5 / 2) * 10  # Correction factor for the length of the car
         # Outer sensor data
-        dist_outward = list_values[2] + (12.5 / 2) * 10
+        dist_outward = new_list[2] + (12.5 / 2) * 10
 
-        if list_values[3] == 1:  # and going east:
+        if new_list[3] == 1:  # and going east:
             self.x = maxd - dist_forward
             self.y = dist_inward + dist_outward
             self.draw(canvas)
-        elif list_values[3] == 2:  # and going south:
+        elif new_list[3] == 2:  # and going south:
             self.x = maxd - (dist_inward+dist_outward)
             self.y = maxd - dist_forward
             self.draw(canvas)
-        elif list_values[3] == 3:  # and going west
+        elif new_list[3] == 3:  # and going west
             self.x = dist_forward
             self.y = maxd - (dist_inward+dist_outward)
             self.draw(canvas)
-        elif list_values[3] == 4:  # and going north
+        elif new_list[3] == 4:  # and going north
             self.x = dist_inward + dist_outward
             self.y = dist_forward
             self.draw(canvas)
@@ -50,4 +49,3 @@ class Point:
             pass
         else:
             pass
-
