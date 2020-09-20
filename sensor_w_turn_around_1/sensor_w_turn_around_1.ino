@@ -148,6 +148,17 @@ void loop() {
 
   if( (distance2 <= 0.08) && (distance2 >= 0.04) ){
     side++;
+      //if full lap is completed, shut down motors
+    while(side >= 5){
+      digitalWrite(input1, LOW);
+      digitalWrite(input2, LOW);  
+      digitalWrite(input3, LOW);
+      digitalWrite(input4, LOW);
+      digitalWrite(input5, LOW);
+      digitalWrite(input6, LOW);
+      digitalWrite(input7, LOW);  
+      digitalWrite(input8, LOW);
+    }
     digitalWrite(input1, HIGH);
     digitalWrite(input2, LOW);  
     digitalWrite(input3, LOW);
@@ -166,17 +177,5 @@ void loop() {
   
   //function call determines which side of arena car is on
   //turnAround(side);
-  
-  //if full lap is completed, shut down motors
-  while(side >= 5){
-    digitalWrite(input1, LOW);
-    digitalWrite(input2, LOW);  
-    digitalWrite(input3, LOW);
-    digitalWrite(input4, LOW);
-    digitalWrite(input5, LOW);
-    digitalWrite(input6, LOW);
-    digitalWrite(input7, LOW);  
-    digitalWrite(input8, LOW);
-  }
   
 }
