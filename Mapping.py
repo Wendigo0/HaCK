@@ -7,7 +7,7 @@ class Point:
     def __init__(self, canvas):
         self.x = 0
         self.y = 0
-        self.size = 1
+        self.size = 4
         self.draw(canvas)
 
     def draw(self, canvas):
@@ -19,14 +19,14 @@ class Point:
         maxd = 750
         counter = 0
         while counter < 3:
-            list_values[counter] = (list_values[counter] * 100) / 2
+            list_values[counter] = ((list_values[counter] * 100) / 2) * 10
             counter += 1
         # Inner sensor data
-        dist_inward = list_values[0] + 12.5 / 2  # Correction factor for width of the car
+        dist_inward = list_values[0] + (12.5 / 2) * 10  # Correction factor for width of the car
         # Front sensor data
-        dist_forward = list_values[1] + 12.5 / 2  # Correction factor for the length of the car
+        dist_forward = list_values[1] + (12.5 / 2) * 10  # Correction factor for the length of the car
         # Outer sensor data
-        dist_outward = list_values[2] + 12.5 / 2
+        dist_outward = list_values[2] + (12.5 / 2) * 10
         if (maxd - 2 <= dist_inward <= maxd + 2) and list_values[3] == 1:  # and going east:
             self.x = maxd - dist_forward
             self.y = maxd - (dist_inward+dist_outward)
