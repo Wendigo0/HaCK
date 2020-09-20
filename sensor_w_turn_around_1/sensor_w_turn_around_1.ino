@@ -146,7 +146,7 @@ void loop() {
 
   Serial.println(side);//side of arena (1-4)
 
-  if( (distance2 <= 0.8) && (distance2 >= 0.04) ){
+  if( (distance2 <= 0.08) && (distance2 >= 0.04) ){
     side++;
     digitalWrite(input1, HIGH);
     digitalWrite(input2, LOW);  
