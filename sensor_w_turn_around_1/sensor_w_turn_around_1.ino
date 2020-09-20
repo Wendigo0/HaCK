@@ -161,7 +161,7 @@ void loop() {
     analogWrite(enB, 150);
     analogWrite(enA_2, 150);
     analogWrite(enB_2, 150);
-    delay(1800);    //arbitrary time delay - TODO: trial and error
+    delay(2000);    //arbitrary time delay - TODO: trial and error
   }
   
   //function call determines which side of arena car is on
