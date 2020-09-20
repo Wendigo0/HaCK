@@ -79,8 +79,10 @@ void setup() {
   pinMode(echoPin2, INPUT);
   pinMode(trigPin3, OUTPUT);
   pinMode(echoPin3, INPUT);
-
+  
   Serial.begin(9600);
+
+  delay(10000);
 }
 
 void loop() {
@@ -159,7 +161,7 @@ void loop() {
     analogWrite(enB, 150);
     analogWrite(enA_2, 150);
     analogWrite(enB_2, 150);
-    delay(2500);    //arbitrary time delay - TODO: trial and error
+    delay(1800);    //arbitrary time delay - TODO: trial and error
   }
   
   //function call determines which side of arena car is on
