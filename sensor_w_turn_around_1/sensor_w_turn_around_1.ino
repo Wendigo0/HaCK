@@ -84,14 +84,14 @@ void setup() {
 }
 
 void loop() {
-  digitalWrite(input1, LOW);
-  digitalWrite(input2, HIGH);  
-  digitalWrite(input3, HIGH);
-  digitalWrite(input4, LOW); 
-  digitalWrite(input5, HIGH); //all wheels in the same direction
-  digitalWrite(input6, LOW);  
-  digitalWrite(input7, LOW);
-  digitalWrite(input8, HIGH); 
+  digitalWrite(input1, HIGH);
+  digitalWrite(input2, LOW);  
+  digitalWrite(input3, LOW);
+  digitalWrite(input4, HIGH); 
+  digitalWrite(input5, LOW); //all wheels in the same direction
+  digitalWrite(input6, HIGH);  
+  digitalWrite(input7, HIGH);
+  digitalWrite(input8, LOW); 
 
   analogWrite(enA, 200);
   analogWrite(enB, 200);
@@ -144,8 +144,27 @@ void loop() {
 
   Serial.println(side);//side of arena (1-4)
 
+  if( (distance2 <= 0.30) && (distance2 >= 0.15) ){
+    digitalWrite(input1, HIGH);
+    digitalWrite(input2, LOW);  
+    digitalWrite(input3, LOW);
+    digitalWrite(input4, HIGH); 
+    digitalWrite(input5, HIGH); //wheels spin opposite directions (clockwise)
+    digitalWrite(input6, LOW);  
+    digitalWrite(input7, LOW);
+    digitalWrite(input8, HIGH); 
+
+    analogWrite(enA, 150);
+    analogWrite(enB, 150);
+    analogWrite(enA_2, 150);
+    analogWrite(enB_2, 150);
+    delay(500);    //arbitrary time delay - TODO: trial and error
+    
+    side++;
+  }
+  
   //function call determines which side of arena car is on
-  turnAround(side);
+  //turnAround(side);
   
   //if full lap is completed, shut down motors
   while(side >= 5){
@@ -153,6 +172,10 @@ void loop() {
     digitalWrite(input2, LOW);  
     digitalWrite(input3, LOW);
     digitalWrite(input4, LOW);
+    digitalWrite(input5, LOW);
+    digitalWrite(input6, LOW);
+    digitalWrite(input7, LOW);  
+    digitalWrite(input8, LOW);
   }
   
 }
