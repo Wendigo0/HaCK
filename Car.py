@@ -23,7 +23,7 @@ class Car:
         maxd = 750
         counter = 0
         while counter < 3:  # Scale the meter data to pixel data
-            master_list[counter] = (master_list[counter]*100)/2
+            master_list[counter] = ((master_list[counter]*100)/2)*10
             counter += 1
 
         dist_inward = master_list[0] + 12.5/2
