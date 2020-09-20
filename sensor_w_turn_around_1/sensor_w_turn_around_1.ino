@@ -144,7 +144,7 @@ void loop() {
 
   Serial.println(side);//side of arena (1-4)
 
-  if( (distance2 <= 0.30) && (distance2 >= 0.15) ){
+  if( (distance2 <= 0.05) && (distance2 >= 0.02) ){
     side++;
     digitalWrite(input1, HIGH);
     digitalWrite(input2, LOW);  
@@ -159,7 +159,7 @@ void loop() {
     analogWrite(enB, 150);
     analogWrite(enA_2, 150);
     analogWrite(enB_2, 150);
-    delay(500);    //arbitrary time delay - TODO: trial and error
+    delay(2500);    //arbitrary time delay - TODO: trial and error
   }
   
   //function call determines which side of arena car is on
