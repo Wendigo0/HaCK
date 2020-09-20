@@ -3,9 +3,9 @@ import pdb
 from Car import Car
 
 
-def comm_w_arduino(list_values):
+def comm_w_arduino(arduino, list_values):
     # Com for data transfer
-    arduino = serial.Serial('com3', 9600)  # Change the com to the one you want to use
+    # arduino = serial.Serial('com3', 9600, timeout=2)  # Change the com to the one you want to use
     # print('Connection Established')
     ard_data = arduino.readline()
 
@@ -27,6 +27,7 @@ def comm_w_arduino(list_values):
 
     ard_data = 0
     # print('<-------------------------------------->')
+    # arduino.close()
 
 
 def counter(counter):

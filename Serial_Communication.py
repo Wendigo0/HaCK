@@ -1,4 +1,5 @@
 import tkinter as tk
+import serial
 
 from Car import Car
 from Mapping import Point
@@ -10,6 +11,8 @@ canvas.pack()
 car = Car(canvas)
 dots = Point(canvas)
 
+arduino = serial.Serial("com3", 9600, timeout=2)  # Establishes the connection
+
 list_values = []
 MASTER_VALUES = []
 
@@ -17,7 +20,7 @@ MASTER_VALUES = []
 def main():
 
     # Gathers reading from arduino distance sensors
-    vf.comm_w_arduino(list_values)
+    vf.comm_w_arduino(arduino, list_values)
 
     # Prints values for reference
     print(list_values)
