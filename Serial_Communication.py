@@ -1,14 +1,17 @@
-import time
-import schedule
 import tkinter as tk
 
 from Car import Car
+from Mapping import Point
 import Value_Functions as vf
 
 window = tk.Tk()
-canvas = tk.Canvas(window, width=1920, height=1080, bg='black')
+canvas = tk.Canvas(window, width=750, height=750, bg='black')  # Make 1pixel = 2cm
 canvas.pack()
 car = Car(canvas)
+
+counter = 0
+list_values = []
+MASTER_VALUES = []
 
 
 def main():
@@ -16,16 +19,18 @@ def main():
     # Gathers reading from arduino distance sensors
     vf.comm_w_arduino(list_values)
     # Stores Readings in a Master List
-    vf.create_master_list(list_values, MASTER_VALUES)
+    print(list_values)
 
     # Car moves based on the IMU reading
-    car.move(canvas, MASTER_VALUES)
+    car.move(canvas, list_values)
+
+    window.bind("<space>", lambda event: vf.pause(event))
+
+    dots = Point(canvas)
+    dots.determine_pos(canvas, list_values)
 
     window.after(10, main)
 
-
-list_values = []
-MASTER_VALUES = []
 
 # print('Program Started')
 
