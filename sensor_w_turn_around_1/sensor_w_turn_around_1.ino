@@ -140,8 +140,7 @@ void loop() {
   Serial.print(distance3); // in meters
   Serial.print(',');
 
-  Serial.print(side);//side of arena (1-4)
-  Serial.println(',');
+  Serial.println(side);//side of arena (1-4)
 
   //function call determines which side of arena car is on
   turnAround(side);
