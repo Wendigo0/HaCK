@@ -7,7 +7,7 @@ class Car:
     def __init__(self, canvas):
         self.x = 20  # 40 cm from back(left)
         self.y = 20  # 40 cm from side(top)
-        self.size = 12.5/2
+        self.size = 12.5/2 * 3  # Kinda close to a car
         self.draw(canvas)
 
     def draw(self, canvas):
@@ -27,9 +27,9 @@ class Car:
             new_list[counter] = ((new_list[counter]*100)/2)*10
             counter += 1
 
-        dist_inward = new_list[0] + 12.5/2
-        dist_forward = new_list[1] + 12.5/2
-        dist_outward = new_list[2] + 12.5/2
+        dist_inward = new_list[0] + (12.5/2 * 10)
+        dist_forward = new_list[1] + (12.5/2 * 10)
+        dist_outward = new_list[2] + (12.5/2 * 10)
         if dist_forward <= 750:
             if new_list[3] == 1:  # North wall
                 self.x = maxd - dist_forward
