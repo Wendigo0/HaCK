@@ -52,8 +52,9 @@ void turnAround(int& side){
     analogWrite(enA_2, 200);
     analogWrite(enB_2, 200);
     delay(1250);    //arbitrary time delay - TODO: trial and error
+    
+    side++;
   }
-  side++;
 }
 
 void setup() {
