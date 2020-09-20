@@ -17,16 +17,16 @@ int input7 = 4;
 int input8 = 3;
 int enA_2 = A5; 
 
-const int trigPin1 = 44;
-const int echoPin1 = 46;
+const int trigPin1 = 46;
+const int echoPin1 = 44;
 long duration1;
 
 const int trigPin2 = 40;
 const int echoPin2 = 42;
 long duration2;
 
-const int trigPin3 = 36;
-const int echoPin3 = 38;
+const int trigPin3 = 38;
+const int echoPin3 = 36;
 long duration3;
 
 int side = 1;
@@ -41,7 +41,7 @@ void turnAround(int& side){
     digitalWrite(input2, LOW);  
     digitalWrite(input3, LOW);
     digitalWrite(input4, HIGH); 
-    digitalWrite(input5, HIGH); //wheels spin opposite directions
+    digitalWrite(input5, HIGH); //wheels spin opposite directions (clockwise)
     digitalWrite(input6, LOW);  
     digitalWrite(input7, LOW);
     digitalWrite(input8, HIGH); 
@@ -50,7 +50,7 @@ void turnAround(int& side){
     analogWrite(enB, 200);
     analogWrite(enA_2, 200);
     analogWrite(enB_2, 200);
-    delay(1250);
+    delay(1250);    //arbitrary time delay - TODO: trial and error
   }
   side++;
 }
