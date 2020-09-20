@@ -1,15 +1,11 @@
 import serial
+import pdb
 from Car import Car
-
-
-def create_master_list(values, MASTER_VALUES):
-    MASTER_VALUES.append(values)
-    print(MASTER_VALUES)
 
 
 def comm_w_arduino(list_values):
     # Com for data transfer
-    arduino = serial.Serial('com3', 9600)
+    arduino = serial.Serial('com3', 9600)  # Change the com to the one you want to use
     # print('Connection Established')
     ard_data = arduino.readline()
 
@@ -37,3 +33,6 @@ def counter(counter):
     counter += 1
     return counter
 
+
+def pause(event=None):
+    pdb.set_trace()
