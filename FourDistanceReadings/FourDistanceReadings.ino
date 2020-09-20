@@ -1,13 +1,13 @@
-const int trigPin1 = 8;
-const int echoPin1 = 7;
+const int trigPin1 = 40;
+const int echoPin1 = 42;
 long duration1;
 
-const int trigPin2 = 12;
-const int echoPin2 = 11;
+const int trigPin2 = 44;
+const int echoPin2 = 46;
 long duration2;
 
-const int trigPin3 = 22;
-const int echoPin3 = 23;
+const int trigPin3 = 38;
+const int echoPin3 = 36;
 long duration3;
 
 const int wall = 1;
